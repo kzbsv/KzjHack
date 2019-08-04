@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<KzjHackUiSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UiLayouts>
+    <UiLayoutRoot Name="Default" WindowState="Normal" IsFullScreen="false" UseSuspendLayout="false">
+      <ClientSize>
+        <Width>1080</Width>
+        <Height>784</Height>
+      </ClientSize>
+      <Location>
+        <X>78</X>
+        <Y>39</Y>
+      </Location>
+      <Layout SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+        <Tabs />
+        <Size>
+          <Width>1080</Width>
+          <Height>784</Height>
+        </Size>
+        <Sizes>
+          <Size>
+            <Width>1080</Width>
+            <Height>392</Height>
+          </Size>
+          <Size>
+            <Width>1080</Width>
+            <Height>388</Height>
+          </Size>
+        </Sizes>
+        <LayoutTabs />
+        <Split Orientation="Horizontal" SplitterDistance="392" IsSplitterFixed="false" FixedPanel="None">
+          <Panel1 SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+            <Tabs />
+            <Size>
+              <Width>1080</Width>
+              <Height>392</Height>
+            </Size>
+            <Sizes>
+              <Size>
+                <Width>928</Width>
+                <Height>392</Height>
+              </Size>
+              <Size>
+                <Width>148</Width>
+                <Height>392</Height>
+              </Size>
+            </Sizes>
+            <LayoutTabs />
+            <Split Orientation="Vertical" SplitterDistance="928" IsSplitterFixed="false" FixedPanel="None">
+              <Panel1 SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+                <Tabs />
+                <Size>
+                  <Width>928</Width>
+                  <Height>392</Height>
+                </Size>
+                <Sizes>
+                  <Size>
+                    <Width>928</Width>
+                    <Height>196</Height>
+                  </Size>
+                  <Size>
+                    <Width>928</Width>
+                    <Height>192</Height>
+                  </Size>
+                </Sizes>
+                <LayoutTabs />
+                <Split Orientation="Horizontal" SplitterDistance="196" IsSplitterFixed="false" FixedPanel="None">
+                  <Panel1 SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+                    <Tabs>
+                      <string>tabMnemonic</string>
+                    </Tabs>
+                    <Size>
+                      <Width>928</Width>
+                      <Height>196</Height>
+                    </Size>
+                    <Sizes>
+                      <Size>
+                        <Width>920</Width>
+                        <Height>170</Height>
+                      </Size>
+                    </Sizes>
+                    <LayoutTabs />
+                  </Panel1>
+                  <Panel2 SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+                    <Tabs>
+                      <string>tabWallet</string>
+                    </Tabs>
+                    <Size>
+                      <Width>928</Width>
+                      <Height>192</Height>
+                    </Size>
+                    <Sizes>
+                      <Size>
+                        <Width>920</Width>
+                        <Height>166</Height>
+                      </Size>
+                    </Sizes>
+                    <LayoutTabs />
+                  </Panel2>
+                </Split>
+              </Panel1>
+              <Panel2 SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+                <Tabs />
+                <Size>
+                  <Width>148</Width>
+                  <Height>392</Height>
+                </Size>
+                <Sizes>
+                  <Size>
+                    <Width>148</Width>
+                    <Height>196</Height>
+                  </Size>
+                  <Size>
+                    <Width>148</Width>
+                    <Height>192</Height>
+                  </Size>
+                </Sizes>
+                <LayoutTabs />
+                <Split Orientation="Horizontal" SplitterDistance="196" IsSplitterFixed="false" FixedPanel="None">
+                  <Panel1 SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+                    <Tabs>
+                      <string>tabActions</string>
+                    </Tabs>
+                    <Size>
+                      <Width>148</Width>
+                      <Height>196</Height>
+                    </Size>
+                    <Sizes>
+                      <Size>
+                        <Width>140</Width>
+                        <Height>170</Height>
+                      </Size>
+                    </Sizes>
+                    <LayoutTabs />
+                  </Panel1>
+                  <Panel2 SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+                    <Tabs>
+                      <string>tabTasks</string>
+                    </Tabs>
+                    <Size>
+                      <Width>148</Width>
+                      <Height>192</Height>
+                    </Size>
+                    <Sizes>
+                      <Size>
+                        <Width>140</Width>
+                        <Height>166</Height>
+                      </Size>
+                    </Sizes>
+                    <LayoutTabs />
+                  </Panel2>
+                </Split>
+              </Panel2>
+            </Split>
+          </Panel1>
+          <Panel2 SelectedIndex="1" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+            <Tabs>
+              <string>tabLog</string>
+              <string>tabMessage</string>
+            </Tabs>
+            <Size>
+              <Width>1080</Width>
+              <Height>388</Height>
+            </Size>
+            <Sizes>
+              <Size>
+                <Width>1072</Width>
+                <Height>362</Height>
+              </Size>
+              <Size>
+                <Width>1072</Width>
+                <Height>362</Height>
+              </Size>
+            </Sizes>
+            <LayoutTabs />
+          </Panel2>
+        </Split>
+      </Layout>
+    </UiLayoutRoot>
+    <UiLayoutRoot Name="Settings" WindowState="Normal" IsFullScreen="false" UseSuspendLayout="false">
+      <ClientSize>
+        <Width>1080</Width>
+        <Height>619</Height>
+      </ClientSize>
+      <Location>
+        <X>159</X>
+        <Y>61</Y>
+      </Location>
+      <Layout SelectedIndex="0" HideTabs="false" HideMvcButton="false" IsCollapsed="false">
+        <Tabs />
+        <Size>
+          <Width>1080</Width>
+          <Height>619</Height>
+        </Size>
+        <Sizes>
+          <Size>
+            <Width>1080</Width>
+            <Height>57</Height>
+          </Size>
+          <Size>
+            <Width>1080</Width>
+            <Height>558</Height>
+          </Size>
+        </Sizes>
+        <LayoutTabs />
+        <Split Orientation="Horizontal" SplitterDistance="57" IsSplitterFixed="false" FixedPanel="Panel1">
+          <Panel1 SelectedIndex="0" HideTabs="true" HideMvcButton="false" IsCollapsed="false">
+            <Tabs>
+              <string>tabOkCancel</string>
+            </Tabs>
+            <Size>
+              <Width>1080</Width>
+              <Height>57</Height>
+            </Size>
+            <Sizes>
+              <Size>
+                <Width>1080</Width>
+                <Height>57</Height>
+              </Size>
+            </Sizes>
+            <LayoutTabs />
+          </Panel1>
+          <Panel2 SelectedIndex="0" HideTabs="true" HideMvcButton="true" IsCollapsed="false">
+            <Tabs>
+              <string>tabSettings</string>
+            </Tabs>
+            <Size>
+              <Width>1080</Width>
+              <Height>558</Height>
+            </Size>
+            <Sizes>
+              <Size>
+                <Width>1080</Width>
+                <Height>558</Height>
+              </Size>
+            </Sizes>
+            <LayoutTabs />
+          </Panel2>
+        </Split>
+      </Layout>
+    </UiLayoutRoot>
+  </UiLayouts>
+</KzjHackUiSettings>
