@@ -30,6 +30,7 @@
             this.cbZMQ = new System.Windows.Forms.CheckBox();
             this.cbBlockHeaders = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbVerifyRawBlocks = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // cbZMQ
@@ -62,10 +63,21 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Tasks";
             // 
+            // cbVerifyRawBlocks
+            // 
+            this.cbVerifyRawBlocks.AutoSize = true;
+            this.cbVerifyRawBlocks.Location = new System.Drawing.Point(3, 69);
+            this.cbVerifyRawBlocks.Name = "cbVerifyRawBlocks";
+            this.cbVerifyRawBlocks.Size = new System.Drawing.Size(109, 17);
+            this.cbVerifyRawBlocks.TabIndex = 3;
+            this.cbVerifyRawBlocks.Text = "Verify RawBlocks";
+            this.cbVerifyRawBlocks.UseVisualStyleBackColor = true;
+            // 
             // TasksControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbVerifyRawBlocks);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbBlockHeaders);
             this.Controls.Add(this.cbZMQ);
@@ -81,5 +93,6 @@
         internal System.Windows.Forms.CheckBox cbZMQ;
         internal System.Windows.Forms.CheckBox cbBlockHeaders;
         private System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.CheckBox cbVerifyRawBlocks;
     }
 }

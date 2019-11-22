@@ -78,7 +78,7 @@ namespace KzjHack
             var b = GetBlockByHeightAndHash(height, hash, headersOnly:false) as KzBlock;
             while (b != null) {
                 yield return b;
-                b = GetNextBlock(b);
+                b = GetPrevBlock(b);
             }
         }
 
@@ -87,11 +87,11 @@ namespace KzjHack
             var b = GetLatestBlock();
             while (b != null) {
                 yield return b;
-                b = GetNextBlock(b);
+                b = GetPrevBlock(b);
             }
         }
 
-        public static KzBlock GetNextBlock(KzBlock b)
+        public static KzBlock GetPrevBlock(KzBlock b)
         {
             var bh = GetBlockByHeightAndHash(b.Height - 1, b.HashPrevBlock, false);
             return bh as KzBlock;
@@ -352,7 +352,7 @@ namespace KzjHack
                         height--;
                         hash = bh.HashPrevBlock;
                         KzH.Write(".");
-                        if (height % 100 == 0) KzH.WriteLine();
+                        if (height % 100 == 0) KzH.WriteLine($" {height:N0} {DateTime.Now:HH:mm:ss}");
                     }
                 }
                 KzH.WriteLine();

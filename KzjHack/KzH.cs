@@ -32,6 +32,7 @@ namespace KzjHack
 
         internal static bool _enableZmqTask;
         internal static bool _enableBlockHeadersTask;
+        internal static bool _enableVerifyRawBlocksTask;
 
         public static KzRpcClient GetKzRpc()
         {
@@ -64,6 +65,7 @@ namespace KzjHack
             _MainForm.actionsMain.buttonSettings.Click += ButtonSettings_Click;
             _MainForm.tasksControl.cbZMQ.CheckedChanged += CbZMQ_CheckedChanged;
             _MainForm.tasksControl.cbBlockHeaders.CheckedChanged += CbBlockHeaders_CheckedChanged;
+            _MainForm.tasksControl.cbVerifyRawBlocks.CheckedChanged += CbVerifyRawBlocks_CheckedChanged;
             _MainForm.timer1.Tick += Timer1_Tick;
 
             _UiMgr.LayoutsChanged += _UiMgr_LayoutsChanged;
@@ -140,6 +142,15 @@ See http://github.com/tonesnotes/KzBitcoinSV for more information.
                         Blocks.StopGetOldBlocks();
                     }
                 }
+                if (_enableVerifyRawBlocksTask != RawBlocks.IsRunning) {
+                    if (_enableVerifyRawBlocksTask) {
+                        WriteLine("Verify RawBlocks Start");
+                        RawBlocks.StartVerifyRawBlocks();
+                    } else {
+                        WriteLine("Verify RawBlocks Stop");
+                        RawBlocks.StopVerifyRawBlocks();
+                    }
+                }
             }
             catch (Exception ex) {
                 WriteLine($"timer1_Tick: {ex.LastInnerMessage()}");
@@ -157,6 +168,10 @@ See http://github.com/tonesnotes/KzBitcoinSV for more information.
         static void CbBlockHeaders_CheckedChanged(object sender, EventArgs e)
         {
             _enableBlockHeadersTask = _MainForm.tasksControl.cbBlockHeaders.Checked;
+        }
+
+        static void CbVerifyRawBlocks_CheckedChanged(object sender, EventArgs e) {
+            _enableVerifyRawBlocksTask = _MainForm.tasksControl.cbVerifyRawBlocks.Checked;
         }
 
         static void _UiMgr_LayoutsChanged(object sender, ValueEventArgs<IEnumerable<XmlUiLayoutRoot>> e)

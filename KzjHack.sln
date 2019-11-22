@@ -7,6 +7,23 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KzjHack", "KzjHack\KzjHack.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KzjHack.Designer", "KzjHack.Designer\KzjHack.Designer.csproj", "{09001334-4908-4D54-AF30-C8C08BA2D886}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3073530B-8A0D-404D-A415-4CFC63DFAAE1}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{B951CC85-5CCC-46FA-8A74-5D1C6977C43A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{C1D00DCB-5D6A-4445-9894-EBBD4CDAF0CA}"
+	ProjectSection(SolutionItems) = preProject
+		doc\images\KzjHack1.png = doc\images\KzjHack1.png
+		doc\images\mnemonic.png = doc\images\mnemonic.png
+		doc\images\rpc.png = doc\images\rpc.png
+		doc\images\settings.png = doc\images\settings.png
+		doc\images\zmq.png = doc\images\zmq.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +41,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C1D00DCB-5D6A-4445-9894-EBBD4CDAF0CA} = {B951CC85-5CCC-46FA-8A74-5D1C6977C43A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B61D3EF0-3E6D-4A40-8D7D-9CE92BF22426}
