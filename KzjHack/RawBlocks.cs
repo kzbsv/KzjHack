@@ -24,6 +24,7 @@ namespace KzjHack
         public static DateTime BlocksSince => KzH.S.BlocksSince;
         public static bool BlocksHeadersOnly => KzH.S.BlocksHeadersOnly;
         public static bool BlocksCheckAll => KzH.S.BlocksCheckAll;
+        public static bool BlocksVerifyNewOnly => KzH.S.BlocksVerifyNewOnly;
 
         public static int GetLatestBlockHeight()
         {
@@ -55,6 +56,8 @@ namespace KzjHack
         public static bool IsRunning => _Running;
         public static bool IsStopping { get => _Stopping; set => _Stopping = value; }
 
+        public static event EventHandler Done;
+
         public static void StartVerifyRawBlocks()
         {
             _Running = true;
@@ -82,41 +85,41 @@ namespace KzjHack
 
                 var b = new KzBlock();
 
-                while (_Running) {
-                    var files = (string[])null;
-                    var files_t = (int?)null;
-                    var files_folder = string.Empty;
-                    var hash = (KzUInt256?)null;
-                    for (var h = height; h >= 0; h--) {
-                        var t = h / 1000;
-                        if (files_t != t) {
-                            files_folder = Path.Combine(BlocksFolder, $"RawBlock{t:D3}");
-                            if (!Directory.Exists(files_folder)) {
-                                Directory.CreateDirectory(files_folder);
-                            }
-                            files = Directory.GetFiles(files_folder);
-                            files_t = t;
-                            KzH.WriteLine($"Verifying folder {files_folder} which initially contained {files.Length} files.");
+                var files = (string[])null;
+                var files_t = (int?)null;
+                var files_folder = string.Empty;
+                var hash = (KzUInt256?)null;
+
+                for (var h = height; _Running && h >= 0; h--) {
+                    var t = h / 1000;
+                    if (files_t != t) {
+                        files_folder = Path.Combine(BlocksFolder, $"RawBlock{t:D3}");
+                        Directory.CreateDirectory(files_folder);
+                        files = Directory.GetFiles(files_folder);
+                        files_t = t;
+                        KzH.WriteLine($"Verifying folder {files_folder} which contains {files.Length} files at {DateTime.Now:HH:mm:ss}.");
+                    }
+                    var filename = Path.Combine(files_folder, $"RawBlock{h:D6}.dat");
+                    if (files.Contains(filename)) {
+                        // Block already exists in RawBlocks.
+                        hash = null; // We won't have hash of next block to be verified.
+                        if (BlocksVerifyNewOnly)
+                            break;
+                    } else {
+                        // Block doesn't exist in RawBlocks yet.
+                        var (ok, ros) = FetchBlockByHeightAndHash(h, hash, b);
+                        if (!ok) {
+                            KzH.WriteLine($"Failed to fetch block at height {h}");
+                            break;
                         }
-                        var filename = Path.Combine(files_folder, $"RawBlock{h:D6}.dat");
-                        if (files.Contains(filename)) {
-                            // Block already exists in RawBlocks.
-                            hash = null; // We won't have hash of next block to be verified.
-                        } else {
-                            // Block doesn't exist in RawBlocks yet.
-                            var (ok, ros) = FetchBlockByHeightAndHash(h, hash, b);
-                            if (!ok) {
-                                KzH.WriteLine($"Failed to fetch block at height {h}");
-                                break;
-                            }
-                            var bytes = ros.ToArray();
-                            File.WriteAllBytes(filename, bytes);
-                            hash = b.HashPrevBlock; // Remember hash of next block to be verified.
-                            KzH.Write(".");
-                            if (h % 100 == 0) KzH.WriteLine($" {h:D6} {DateTime.Now:HH:mm:ss}");
-                        }
+                        var bytes = ros.ToArray();
+                        File.WriteAllBytes(filename, bytes);
+                        hash = b.HashPrevBlock; // Remember hash of next block to be verified.
+                        KzH.Write(".");
+                        if (h % 100 == 0) KzH.WriteLine($" {h:D6} {DateTime.Now:HH:mm:ss}");
                     }
                 }
+
                 KzH.WriteLine();
 
             } catch (Exception ex) {
@@ -126,6 +129,7 @@ namespace KzjHack
                 _Running = false;
                 _Stopping = true;
                 KzH.WriteLine("Verify RawBlocks Done");
+                Done(null, new EventArgs());
             }
 
             return Task.FromResult(0);

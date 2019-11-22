@@ -66,6 +66,7 @@ namespace KzjHack
             _MainForm.tasksControl.cbZMQ.CheckedChanged += CbZMQ_CheckedChanged;
             _MainForm.tasksControl.cbBlockHeaders.CheckedChanged += CbBlockHeaders_CheckedChanged;
             _MainForm.tasksControl.cbVerifyRawBlocks.CheckedChanged += CbVerifyRawBlocks_CheckedChanged;
+            RawBlocks.Done += RawBlocks_Done;
             _MainForm.timer1.Tick += Timer1_Tick;
 
             _UiMgr.LayoutsChanged += _UiMgr_LayoutsChanged;
@@ -172,6 +173,15 @@ See http://github.com/tonesnotes/KzBitcoinSV for more information.
 
         static void CbVerifyRawBlocks_CheckedChanged(object sender, EventArgs e) {
             _enableVerifyRawBlocksTask = _MainForm.tasksControl.cbVerifyRawBlocks.Checked;
+        }
+
+        static void RawBlocks_Done(object sender, EventArgs e) {
+            if (_MainForm.InvokeRequired) {
+                _MainForm.BeginInvoke(new Action<object, EventArgs>(RawBlocks_Done), sender, e);
+                return;
+            }
+            _enableVerifyRawBlocksTask = false;
+            _MainForm.tasksControl.cbVerifyRawBlocks.Checked = false;
         }
 
         static void _UiMgr_LayoutsChanged(object sender, ValueEventArgs<IEnumerable<XmlUiLayoutRoot>> e)

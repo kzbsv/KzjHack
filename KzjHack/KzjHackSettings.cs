@@ -43,6 +43,12 @@ namespace KzjHack
         [DefaultValue(false)]
         public bool BlocksCheckAll { get; set; }
 
+        [Category("Blocks")]
+        [DisplayName("Verify New Only")]
+        [Description(@"True, Verify RawBlocks will stop at first existing RawBlock. False, verify existance of all RawBlocks.")]
+        [DefaultValue(false)]
+        public bool BlocksVerifyNewOnly { get; set; }
+
         [Category("Data Services")]
         [DisplayName("BSV ZMQ Address")]
         [Description(@"Set to address of a Bitcoin SV node for ZMQ data services. For example: 'tcp://192.168.0.101:28332'.")]
